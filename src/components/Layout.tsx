@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, Users, DollarSign, Settings, Activity, HelpCircle, Bell, ChevronDown } from "lucide-react";
+import { LayoutDashboard, Users, DollarSign, Settings, Activity, HelpCircle, Bell, ChevronDown, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -19,6 +19,7 @@ const menuItems = [
   { name: "Clientes", path: "/clientes", icon: Users },
   { name: "Financeiro", path: "/financeiro", icon: DollarSign },
   { name: "Monitoramento", path: "/monitoramento", icon: Activity },
+  { name: "Implantação", path: "/implantacao", icon: Package },
   { name: "Configurações", path: "/configuracoes", icon: Settings },
   { name: "Ajuda", path: "/ajuda", icon: HelpCircle },
 ];

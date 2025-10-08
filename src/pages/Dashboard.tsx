@@ -139,6 +139,87 @@ export default function Dashboard() {
         </Card>
       </div>
 
+      {/* Top 10 Charts */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <Card className="p-6 shadow-card">
+          <h3 className="text-lg font-semibold text-foreground mb-4">Top 10 - Lojistas Ativos</h3>
+          <div className="space-y-3">
+            {[
+              { name: "Tech Solutions", count: 245 },
+              { name: "Digital Agency", count: 198 },
+              { name: "Food Express", count: 187 },
+              { name: "Home Decor", count: 156 },
+              { name: "Fashion Store", count: 143 },
+              { name: "Auto Parts", count: 128 },
+              { name: "Pet Shop", count: 115 },
+              { name: "Beauty Care", count: 98 },
+              { name: "Sports Plus", count: 87 },
+              { name: "Electronics", count: 76 },
+            ].map((client, index) => (
+              <div key={index} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-bold text-primary">{index + 1}</span>
+                  <span className="text-sm font-medium text-foreground">{client.name}</span>
+                </div>
+                <span className="text-sm font-semibold text-muted-foreground">{client.count}</span>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <Card className="p-6 shadow-card">
+          <h3 className="text-lg font-semibold text-foreground mb-4">Top 10 - Produtos Cadastrados</h3>
+          <div className="space-y-3">
+            {[
+              { name: "Tech Solutions", count: 1250 },
+              { name: "Fashion Store", count: 1187 },
+              { name: "Home Decor", count: 1056 },
+              { name: "Electronics", count: 943 },
+              { name: "Beauty Care", count: 876 },
+              { name: "Sports Plus", count: 754 },
+              { name: "Pet Shop", count: 698 },
+              { name: "Auto Parts", count: 587 },
+              { name: "Food Express", count: 512 },
+              { name: "Digital Agency", count: 445 },
+            ].map((client, index) => (
+              <div key={index} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-bold text-primary">{index + 1}</span>
+                  <span className="text-sm font-medium text-foreground">{client.name}</span>
+                </div>
+                <span className="text-sm font-semibold text-muted-foreground">{client.count}</span>
+              </div>
+            ))}
+          </div>
+        </Card>
+
+        <Card className="p-6 shadow-card">
+          <h3 className="text-lg font-semibold text-foreground mb-4">Top 10 - Volume de Vendas</h3>
+          <div className="space-y-3">
+            {[
+              { name: "Fashion Store", value: "R$ 125.450" },
+              { name: "Tech Solutions", value: "R$ 98.320" },
+              { name: "Electronics", value: "R$ 87.650" },
+              { name: "Home Decor", value: "R$ 76.890" },
+              { name: "Beauty Care", value: "R$ 65.430" },
+              { name: "Auto Parts", value: "R$ 54.220" },
+              { name: "Sports Plus", value: "R$ 45.670" },
+              { name: "Food Express", value: "R$ 38.540" },
+              { name: "Pet Shop", value: "R$ 32.180" },
+              { name: "Digital Agency", value: "R$ 28.950" },
+            ].map((client, index) => (
+              <div key={index} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-bold text-primary">{index + 1}</span>
+                  <span className="text-sm font-medium text-foreground">{client.name}</span>
+                </div>
+                <span className="text-sm font-semibold text-success">{client.value}</span>
+              </div>
+            ))}
+          </div>
+        </Card>
+      </div>
+
       {/* Tables and Alerts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recent Clients */}

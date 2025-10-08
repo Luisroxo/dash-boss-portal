@@ -165,6 +165,96 @@ export default function Monitoramento() {
         </div>
       </Card>
 
+      {/* Service Status Page */}
+      <Card className="shadow-card">
+        <div className="p-6 border-b border-border">
+          <h3 className="text-lg font-semibold text-foreground">Status do Serviço</h3>
+          <p className="text-sm text-muted-foreground mt-1">Todos os sistemas operacionais</p>
+        </div>
+        <div className="p-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[
+              { name: "API Principal", status: "operational" },
+              { name: "Painel de Controle", status: "operational" },
+              { name: "Banco de Dados", status: "operational" },
+              { name: "Processamento de Pedidos", status: "operational" },
+              { name: "Gateway de Pagamento", status: "degraded" },
+              { name: "Sistema de E-mail", status: "operational" },
+              { name: "CDN & Armazenamento", status: "operational" },
+              { name: "Webhooks", status: "operational" },
+            ].map((service) => (
+              <div key={service.name} className="flex items-center justify-between p-4 border border-border rounded-lg">
+                <span className="text-sm font-medium text-foreground">{service.name}</span>
+                <div className="flex items-center gap-2">
+                  <div className={`w-2 h-2 rounded-full ${
+                    service.status === "operational" ? "bg-success" : 
+                    service.status === "degraded" ? "bg-warning" : "bg-destructive"
+                  }`}></div>
+                  <span className="text-xs font-medium text-muted-foreground">
+                    {service.status === "operational" ? "Operacional" : 
+                     service.status === "degraded" ? "Degradado" : "Offline"}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Card>
+
+      {/* Incident History */}
+      <Card className="p-6 shadow-card">
+        <h3 className="text-lg font-semibold text-foreground mb-4">Histórico de Incidentes</h3>
+        <div className="space-y-4">
+          {[
+            {
+              date: "24/10/2025 - 14:30",
+              title: "Lentidão no Gateway de Pagamento",
+              status: "Resolvido",
+              duration: "45 minutos",
+              impact: "Médio",
+              description: "Alguns usuários experimentaram lentidão ao processar pagamentos. Problema identificado e corrigido.",
+            },
+            {
+              date: "20/10/2025 - 09:15",
+              title: "Manutenção Programada - Banco de Dados",
+              status: "Concluído",
+              duration: "2 horas",
+              impact: "Baixo",
+              description: "Atualização de segurança e otimização de performance realizada com sucesso.",
+            },
+            {
+              date: "15/10/2025 - 22:00",
+              title: "Interrupção Parcial - API Principal",
+              status: "Resolvido",
+              duration: "1 hora 20 minutos",
+              impact: "Alto",
+              description: "Falha no servidor principal causou indisponibilidade temporária. Failover ativado e sistema restaurado.",
+            },
+          ].map((incident, index) => (
+            <div key={index} className="border border-border rounded-lg p-4">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h4 className="font-semibold text-foreground">{incident.title}</h4>
+                  <p className="text-xs text-muted-foreground mt-1">{incident.date}</p>
+                </div>
+                <Badge variant="outline" className="text-xs">
+                  {incident.status}
+                </Badge>
+              </div>
+              <p className="text-sm text-muted-foreground mb-3">{incident.description}</p>
+              <div className="flex gap-4 text-xs">
+                <span className="text-muted-foreground">
+                  <strong>Duração:</strong> {incident.duration}
+                </span>
+                <span className="text-muted-foreground">
+                  <strong>Impacto:</strong> {incident.impact}
+                </span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Card>
+
       {/* System Alerts */}
       <Card className="p-6 shadow-card">
         <h3 className="text-lg font-semibold text-foreground mb-4">Alertas Ativos</h3>
